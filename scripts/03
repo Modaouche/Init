@@ -1,0 +1,17 @@
+#!/bin/bash
+read -p "Did you want to create new user or delete user ? (c/d): " choice
+case $choice in
+	[cC]* ) read -p "Name of the new user: " name
+		sudo useradd $name || echo "command failed: are you root ?" || exit
+		passwd $name
+		read -p "Group of the new user : " grp
+		mkdir /home/$name
+		chown $name:$grp /home/$name;;
+	[Dd]* )	read -p "Name of the user to delete: " name
+		echo "Are you sure ?"
+		read -p "Press n to abort, else press any another keys : " abort
+		test "$abort" = "n" && echo "Aborted." && exit
+		sudo userdel -fr $name;;
+	* )	echo "Please answer with c or d";;
+esac
+echo "Done."

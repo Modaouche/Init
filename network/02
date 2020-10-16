@@ -1,0 +1,3 @@
+#!/bin/bash
+ifconfig en0 | awk '/broadcast/{print $6 $13}'
+arp -a | awk '/.fr/{print $2 }' | tr -d "()"

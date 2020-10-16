@@ -1,0 +1,5 @@
+Lors de la connection ou de la demande de changement d'utilisateur.
+On specifie le nouvel utilisateur et son mot de passe.
+
+En ssh on lance cette commande, puis on nous demande un mot de passe:
+ssh newuser@ip

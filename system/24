@@ -1,0 +1,2 @@
+#!/bin/bash
+apt list --installed #aussi dpkg --get-selections ou dpkg --list
